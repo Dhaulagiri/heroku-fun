@@ -1,5 +1,15 @@
-<ul>
-  {{#each model as |app|}}
-    <li>{{app.name}}</li>
-  {{/each}}
-</ul>
+<div class="row">
+  <h1 class="text-center title">
+    My Apps
+  </h1>
+</div>
+
+<div class="row">
+  <div class="application-list">
+    <ul class="list-group">
+      {{#each model as |app|}}
+        {{application-item app=app}}
+      {{/each}}
+    </ul>
+  </div>
+</div>
