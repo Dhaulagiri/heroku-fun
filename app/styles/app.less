@@ -6,8 +6,31 @@ body {
   margin-bottom: 60px;
 }
 
+.btn-circle {
+  width: 45px;
+  height: 45px;
+  border-radius: 25px;
+}
+
 .application-list {
+  position: relative;
+
+  > div {
+    position: absolute;
+  }
+
+  .application-list__items {
     width: 50%;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: -25%;
+    left: 50%;
+  }
+  .application-list__button {
+    top: 20px;
+    left: 77%;
+  }
+}
+
+// TODO - refactor to modal
+.application-item {
+  margin-bottom: 30px;
 }

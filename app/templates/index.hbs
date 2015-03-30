@@ -4,12 +4,26 @@
   </h1>
 </div>
 
-<div class="row">
-  <div class="application-list">
+<!-- TODO - Move this to a component -->
+<!-- TODO - Make this a modal -->
+<div class="row application-item text-center {{if isHidden 'hidden'}}">
+  <div class="application-item__input">
+    {{input type="text" placeholder="Enter application name" value=name}}
+    <span class="application-item__button">
+      <button {{action "saveApp"}} class="btn btn-primary btn-circle">+</button>
+    </span>
+  </div>
+</div>
+
+<div class="row application-list">
+  <div class="application-list__items">
     <ul class="list-group">
       {{#each model as |app|}}
         {{application-item app=app}}
       {{/each}}
     </ul>
+  </div>
+  <div class="application-list__button">
+    <button {{action "addApp"}} class="btn btn-primary btn-circle">+</button>
   </div>
 </div>
