@@ -9,7 +9,7 @@ export default Ember.Controller.extend({
     saveApp: function() {
       var name = this.get('name');
       if (name.length > 0) {
-        var newApp = this.store.createRecord('application', {
+        var newApp = this.store.createRecord('app', {
           name: name
         });
 

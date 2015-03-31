@@ -5,6 +5,7 @@ module.exports = function(environment) {
     modulePrefix: 'heroku-fun',
     environment: environment,
     baseURL: '/',
+    apiToken: 'a1daad1eac585d4904bc40fe9810ae9ea5d8df77',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
@@ -16,6 +17,9 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+    },
+    contentSecurityPolicy: {
+      'connect-src': "'self' https://api.heroku.com"
     }
   };
 
