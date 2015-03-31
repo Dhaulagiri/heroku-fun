@@ -1,10 +1,5 @@
 import DS from 'ember-data';
-import Ember from 'ember';
 
-// I was getting trolled by some deserialization issues with the default
-// REST deserializer, so I added this basic wrapper
-// Given more time I would try to investigate more why I was seeing the errors
-// I was
 export default DS.RESTSerializer.extend({
   extractArray: function(store, type, payload) {
     var data = {};
@@ -18,5 +13,10 @@ export default DS.RESTSerializer.extend({
     data[root] = extracted;
 
     return this._super(store, type, data);
+  },
+  // Override default serializer so that we pass raw json object to API
+  // i.e. - don't wrap JSON in model name
+  serializeIntoHash: function(hash, type, record, options) {
+    Ember.merge(hash, this.serialize(record, options));
   }
 });
