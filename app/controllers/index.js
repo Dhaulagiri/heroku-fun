@@ -4,7 +4,12 @@ export default Ember.Controller.extend({
   isHidden: true,
   actions: {
     addApp: function() {
-      this.set('isHidden', false);
+      var isHidden = this.get('isHidden');
+      if (isHidden) {
+        this.set('isHidden', false);
+      } else {
+        this.set('isHidden', true);
+      }
     },
     saveApp: function() {
       var name = this.get('name');
