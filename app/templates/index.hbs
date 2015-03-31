@@ -1,29 +1,35 @@
-<div class="row">
-  <h1 class="text-center title">
-    My Apps
-  </h1>
-</div>
-
-<!-- TODO - Move this to a component -->
-<!-- TODO - Make this a modal -->
-<div class="row application-item text-center {{if isHidden 'hidden'}}">
-  <div class="application-item__input">
-    {{input type="text" placeholder="Enter application name" value=name}}
-    <span class="application-item__button">
-      <button {{action "saveApp"}} class="btn btn-primary btn-circle">+</button>
-    </span>
+<div class="header-content">
+  <div class="row">
+    <h1 class="text-center title">
+      My Apps
+    </h1>
   </div>
 </div>
 
-<div class="row application-list">
-  <div class="application-list__items">
-    <ul class="list-group">
-      {{#each model as |app|}}
-        {{application-item app=app}}
-      {{/each}}
-    </ul>
-  </div>
-  <div class="application-list__button">
-    <button {{action "addApp"}} class="btn btn-primary btn-circle">+</button>
+<div class="main-content">
+  <div class="container">
+    <!-- TODO - Move this to a component -->
+    <!-- TODO - Make this a modal -->
+    <div class="row application-item text-center {{if isHidden 'hidden'}}">
+      <div class="application-item__input">
+        {{input type="text" placeholder="Enter application name" value=name}}
+        <span class="application-item__button">
+          <button {{action "saveApp"}} class="btn btn-primary btn-circle">+</button>
+        </span>
+      </div>
+    </div>
+
+    <div class="row application-list">
+      <div class="application-list__items">
+        <ul class="list-group">
+          {{#each model as |app|}}
+            {{application-item app=app}}
+          {{/each}}
+        </ul>
+      </div>
+      <div class="application-list__button">
+        <button {{action "addApp"}} class="btn btn-primary btn-circle">+</button>
+      </div>
+    </div>
   </div>
 </div>
